@@ -36,7 +36,9 @@ namespace Simulator8086
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("2.MOV");
                 Console.ResetColor();
-                Console.WriteLine("3");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("3.ADD");
+                Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("4.View current registers values");
                 Console.ResetColor();
@@ -2345,35 +2347,1457 @@ namespace Simulator8086
                             Console.WriteLine("5.BL");
                             Console.WriteLine("6.CL");
                             Console.WriteLine("7.DL");
+                            int addA = int.Parse(Console.ReadLine());
+                            if (addA == 1) // + BH
+                            {
+                                if (wartosc.HIGH1 <= 99)
+                                {
+                                    wartosc.HIGH1 = wartosc.HIGH1 + wartosc.HIGH2;
+                                    wartosc.HEX1 =  wartosc.HIGH1+ "00";
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addA == 2)// + CH
+                            {
+                                if (wartosc.HIGH1 <= 99)
+                                {
+                                    wartosc.HIGH1 = wartosc.HIGH1 + wartosc.HIGH3;
+                                    wartosc.HEX1 = wartosc.HIGH1 + "00";
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addA == 3) // + DH
+                            {
+                                if (wartosc.HIGH1 <= 99)
+                                {
+                                    wartosc.HIGH1 = wartosc.HIGH1 + wartosc.HIGH4;
+                                    wartosc.HEX1 = wartosc.HIGH1 + "00";
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addA == 4) // + AL
+                            {
+                                if (wartosc.HIGH1 <= 99)
+                                {
+                                    wartosc.HIGH1 = wartosc.HIGH1 + wartosc.LOW1;
+
+
+                                    if (wartosc.HIGH1 <= 9 && wartosc.LOW1 <= 9)
+                                    {
+                                        wartosc.HEX1 = "0" + wartosc.HIGH1 + "0" + wartosc.LOW1;
+                                        wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH1 <= 9 && wartosc.LOW1 >= 10)
+                                    {
+                                        wartosc.HEX1 = "0" + wartosc.HIGH1 + wartosc.LOW1;
+                                        wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH1 >= 10)
+                                    {
+                                        wartosc.HEX1 = wartosc.HIGH1 + wartosc.LOW1 + "";
+                                        wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addA == 5) // + BL
+                            {
+                                if(wartosc.HIGH1 <= 99)
+                                {
+                                    wartosc.HIGH1 = wartosc.HIGH1 + wartosc.LOW2;
+                                    wartosc.HEX1 = wartosc.HIGH1 + "00";
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addA == 6)// + CL
+                            {
+                                if (wartosc.HIGH1 <= 99) 
+                                {
+                                    wartosc.HIGH1 = wartosc.HIGH1 + wartosc.LOW3;
+                                    wartosc.HEX1 = wartosc.HIGH1 + "00";
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else 
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addA == 7) // + DL
+                            {
+                                if (wartosc.HIGH1 <= 99)
+                                {
+                                    wartosc.HIGH1 = wartosc.HIGH1 + wartosc.LOW4;
+                                    wartosc.HEX1 = wartosc.HIGH1 + "00";
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
 
                         }
                         else if (add == 2) //BH +
                         {
                             Console.WriteLine("Which register you want to add :");
+                            Console.WriteLine("1.AH");
+                            Console.WriteLine("2.CH");
+                            Console.WriteLine("3.DH");
+                            Console.WriteLine("4.AL");
+                            Console.WriteLine("5.BL");
+                            Console.WriteLine("6.CL");
+                            Console.WriteLine("7.DL");
+                            int addB = int.Parse(Console.ReadLine());
+                            if (addB == 1) // + AH
+                            {
+
+                                if (wartosc.HIGH2 <= 99)
+                                {
+                                    wartosc.HIGH2 = wartosc.HIGH2 + wartosc.HIGH1;
+                                    wartosc.HEX2 = wartosc.HIGH2 + "00";
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addB == 2) // + CH
+                            {
+
+                                if (wartosc.HIGH2 <= 99)
+                                {
+                                    wartosc.HIGH2 = wartosc.HIGH2 + wartosc.HIGH3;
+                                    wartosc.HEX2 = wartosc.HIGH2 + "00";
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addB == 3) // + DH
+                            {
+
+                                if (wartosc.HIGH2 <= 99)
+                                {
+                                    wartosc.HIGH2 = wartosc.HIGH2 + wartosc.HIGH4;
+                                    wartosc.HEX2 = wartosc.HIGH2 + "00";
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addB == 4) // + AL
+                            {
+
+                                if (wartosc.HIGH2 <= 99)
+                                {
+                                    wartosc.HIGH2 = wartosc.HIGH2 + wartosc.LOW1;
+                                    wartosc.HEX2 = wartosc.HIGH2 + "00";
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addB == 5) // + BL
+                            {
+
+                                 if (wartosc.HIGH2 <= 99)
+                                {
+                                    wartosc.HIGH2 = wartosc.HIGH2 + wartosc.LOW2;
+
+
+                                    if (wartosc.HIGH2 <= 9 && wartosc.LOW2 <= 9)
+                                    {
+                                        wartosc.HEX2 = "0" + wartosc.HIGH2 + "0" + wartosc.LOW2;
+                                        wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH2 <= 9 && wartosc.LOW2 >= 10)
+                                    {
+                                        wartosc.HEX2 = "0" + wartosc.HIGH2 + wartosc.LOW2;
+                                        wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH2 >= 10)
+                                    {
+                                        wartosc.HEX2 = wartosc.HIGH2 + wartosc.LOW2 + "";
+                                        wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addB == 6) // + CL
+                            {
+
+                                if (wartosc.HIGH2 <= 99)
+                                {
+                                    wartosc.HIGH2 = wartosc.HIGH2 + wartosc.LOW3;
+                                    wartosc.HEX2 = wartosc.HIGH2 + "00";
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addB == 7) // DL
+                            {
+
+                                if (wartosc.HIGH2 <= 99)
+                                {
+                                    wartosc.HIGH2 = wartosc.HIGH2 + wartosc.LOW4;
+                                    wartosc.HEX2 = wartosc.HIGH2 + "00";
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
                         }
                         else if (add == 3) //CH +
                         {
                             Console.WriteLine("Which register you want to add:");
+
+                            Console.WriteLine("1.AH");
+                            Console.WriteLine("2.BH");
+                            Console.WriteLine("3.DH");
+                            Console.WriteLine("4.AL");
+                            Console.WriteLine("5.BL");
+                            Console.WriteLine("6.CL");
+                            Console.WriteLine("7.DL");
+                            int addC = int.Parse(Console.ReadLine());
+                            if (addC == 1) // + AH
+                            {
+
+                                if (wartosc.HIGH3 <= 99)
+                                {
+                                    wartosc.HIGH3 = wartosc.HIGH3 + wartosc.HIGH1;
+                                    wartosc.HEX3 = wartosc.HIGH3 + "00";
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addC == 2) // + BH 
+                            {
+
+                                if (wartosc.HIGH3 <= 99)
+                                {
+                                    wartosc.HIGH3 = wartosc.HIGH3 + wartosc.HIGH2;
+                                    wartosc.HEX3 = wartosc.HIGH3 + "00";
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addC == 3) // + DH
+                            {
+
+                                if (wartosc.HIGH3 <= 99)
+                                {
+                                    wartosc.HIGH3 = wartosc.HIGH3 + wartosc.HIGH4;
+                                    wartosc.HEX3 = wartosc.HIGH3 + "00";
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addC == 4) // + AL
+                            {
+
+                                if (wartosc.HIGH3 <= 99)
+                                {
+                                    wartosc.HIGH3 = wartosc.HIGH3 + wartosc.LOW1;
+                                    wartosc.HEX3 = wartosc.HIGH3 + "00";
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addC == 5)// + BL
+                            {
+
+                                if (wartosc.HIGH3 <= 99)
+                                {
+                                    wartosc.HIGH3 = wartosc.HIGH3 + wartosc.LOW2;
+                                    wartosc.HEX3 = wartosc.HIGH3 + "00";
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addC == 6) // + CL
+                            {
+
+                                if (wartosc.HIGH3 <= 99)
+                                {
+                                    wartosc.HIGH3 = wartosc.HIGH3 + wartosc.LOW3;
+
+
+                                    if (wartosc.HIGH3 <= 9 && wartosc.LOW3 <= 9)
+                                    {
+                                        wartosc.HEX3 = "0" + wartosc.HIGH3 + "0" + wartosc.LOW3;
+                                        wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH3 <= 9 && wartosc.LOW3 >= 10)
+                                    {
+                                        wartosc.HEX3 = "0" + wartosc.HIGH3 + wartosc.LOW3;
+                                        wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH3 >= 10)
+                                    {
+                                        wartosc.HEX3 = wartosc.HIGH3 + wartosc.LOW3 + "";
+                                        wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addC == 7) // + DL
+                            {
+
+                                if (wartosc.HIGH3 <= 99)
+                                {
+                                    wartosc.HIGH3 = wartosc.HIGH3 + wartosc.LOW4;
+                                    wartosc.HEX3 = wartosc.HIGH3 + "00";
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
                         }
                         else if (add == 4) //DH +
                         {
                             Console.WriteLine("Which register you want to add:");
+                            Console.WriteLine("1.AH");
+                            Console.WriteLine("2.BH");
+                            Console.WriteLine("3.CH");
+                            Console.WriteLine("4.AL");
+                            Console.WriteLine("5.BL");
+                            Console.WriteLine("6.CL");
+                            Console.WriteLine("7.DL");
+                            int addD = int.Parse(Console.ReadLine());
+                            if (addD == 1) // + AH
+                            {
+
+                                if (wartosc.HIGH4 <= 99)
+                                {
+                                    wartosc.HIGH4 = wartosc.HIGH4 + wartosc.HIGH1;
+                                    wartosc.HEX4 = wartosc.HIGH4 + "00";
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addD == 2) // + BH
+                            {
+
+                                if (wartosc.HIGH4 <= 99)
+                                {
+                                    wartosc.HIGH4 = wartosc.HIGH4 + wartosc.HIGH2;
+                                    wartosc.HEX4 = wartosc.HIGH4 + "00";
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addD == 3) // + CH
+                            {
+
+                                if (wartosc.HIGH4 <= 99)
+                                {
+                                    wartosc.HIGH4 = wartosc.HIGH4 + wartosc.HIGH3;
+                                    wartosc.HEX4 = wartosc.HIGH4 + "00";
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addD == 4) // + AL
+                            {
+
+                                if (wartosc.HIGH4 <= 99)
+                                {
+                                    wartosc.HIGH4 = wartosc.HIGH4 + wartosc.LOW1;
+                                    wartosc.HEX4 = wartosc.HIGH4 + "00";
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addD == 5) // + BL
+                            {
+
+                                if (wartosc.HIGH4 <= 99)
+                                {
+                                    wartosc.HIGH4 = wartosc.HIGH4 + wartosc.LOW2;
+                                    wartosc.HEX4 = wartosc.HIGH4 + "00";
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addD == 6)// + CL
+                            {
+
+                                if (wartosc.HIGH4 <= 99)
+                                {
+                                    wartosc.HIGH4 = wartosc.HIGH4 + wartosc.LOW3;
+                                    wartosc.HEX4 = wartosc.HIGH4 + "00";
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addD == 7) // + DL
+                            {
+
+                                if (wartosc.HIGH4 <= 99)
+                                {
+                                    wartosc.HIGH4 = wartosc.HIGH4 + wartosc.LOW4;
+
+
+                                    if (wartosc.HIGH4 <= 9 && wartosc.LOW4 <= 9)
+                                    {
+                                        wartosc.HEX4 = "0" + wartosc.HIGH4 + "0" + wartosc.LOW4;
+                                        wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH4 <= 9 && wartosc.LOW4 >= 10)
+                                    {
+                                        wartosc.HEX4 = "0" + wartosc.HIGH4 + wartosc.LOW4;
+                                        wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH4 >= 10)
+                                    {
+                                        wartosc.HEX4 = wartosc.HIGH4 + wartosc.LOW4 + "";
+                                        wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
                         }
                         else if (add == 5) // AL +
                         {
                             Console.WriteLine("Which register you want to add:");
+                            Console.WriteLine("1.AH");
+                            Console.WriteLine("2.BH");
+                            Console.WriteLine("3.CH");
+                            Console.WriteLine("4.DH");
+                            Console.WriteLine("5.BL");
+                            Console.WriteLine("6.CL");
+                            Console.WriteLine("7.DL");
+                            int addAL = int.Parse(Console.ReadLine());
+                            if (addAL == 1) // + AH
+                            {
+
+                                if (wartosc.LOW1 <= 99 )
+                                {
+                                    wartosc.LOW1 = wartosc.LOW1 + wartosc.HIGH1;
+                                    
+                                    
+                                    if (wartosc.HIGH1 <= 9 && wartosc.LOW1 <= 9)
+                                    {
+                                        wartosc.HEX1 = "0" + wartosc.HIGH1 + "0" + wartosc.LOW1;
+                                        wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH1 <=9 && wartosc.LOW1 >=10) 
+                                    {
+                                        wartosc.HEX1 = "0" + wartosc.HIGH1 + wartosc.LOW1;
+                                        wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH1 >= 10)
+                                    {
+                                        wartosc.HEX1 = wartosc.HIGH1 + wartosc.LOW1 +"";
+                                        wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addAL == 2) // + BH
+                            {
+                                if (wartosc.LOW1 <= 99)
+                                {
+                                    wartosc.LOW1 = wartosc.LOW1 + wartosc.HIGH2;
+                                    wartosc.HEX1 = "00" + wartosc.LOW1;
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addAL == 3) // + CH
+                            {
+                                if (wartosc.LOW1 <= 99)
+                                {
+                                    wartosc.LOW1 = wartosc.LOW1 + wartosc.HIGH3;
+                                    wartosc.HEX1 = "00" + wartosc.LOW1;
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addAL == 4) // + DH
+                            {
+                                if (wartosc.LOW1 <= 99)
+                                {
+                                    wartosc.LOW1 = wartosc.LOW1 + wartosc.HIGH4;
+                                    wartosc.HEX1 = "00" + wartosc.LOW1;
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addAL == 5) // + BL
+                            {
+                                if (wartosc.LOW1 <= 99)
+                                {
+                                    wartosc.LOW1 = wartosc.LOW1 + wartosc.LOW2;
+                                    wartosc.HEX1 = "00" + wartosc.LOW1;
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addAL == 6)
+                            {
+                                if (wartosc.LOW1 <= 99)
+                                {
+                                    wartosc.LOW1 = wartosc.LOW1 + wartosc.LOW3;
+                                    wartosc.HEX1 = "00" + wartosc.LOW1;
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addAL == 7)
+                            {
+                                if (wartosc.LOW1 <= 99)
+                                {
+                                    wartosc.LOW1 = wartosc.LOW1 + wartosc.LOW4;
+                                    wartosc.HEX1 = "00" + wartosc.LOW1;
+                                    wartosc.AX = int.Parse(wartosc.HEX1, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
                         }
                         else if (add == 6) // BL +
                         {
                             Console.WriteLine("Which register you want to add:");
+
+                            Console.WriteLine("1.AH");
+                            Console.WriteLine("2.BH");
+                            Console.WriteLine("3.CH");
+                            Console.WriteLine("4.DH");
+                            Console.WriteLine("5.AL");
+                            Console.WriteLine("6.CL");
+                            Console.WriteLine("7.DL");
+                            int addBL = int.Parse(Console.ReadLine());
+                            if (addBL == 1) // + AH
+                            {
+                                if (wartosc.LOW2 <= 99)
+                                {
+                                    wartosc.LOW2 = wartosc.LOW2 + wartosc.HIGH1;
+                                    wartosc.HEX2 = "00" + wartosc.LOW2;
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addBL == 2) // +BH
+                            {
+                                if (wartosc.LOW2 <= 99)
+                                {
+                                    wartosc.LOW2 = wartosc.LOW2 + wartosc.HIGH2;
+
+
+                                    if (wartosc.HIGH2 <= 9 && wartosc.LOW2 <= 9)
+                                    {
+                                        wartosc.HEX2 = "0" + wartosc.HIGH2 + "0" + wartosc.LOW2;
+                                        wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH2 <= 9 && wartosc.LOW2 >= 10)
+                                    {
+                                        wartosc.HEX2 = "0" + wartosc.HIGH2 + wartosc.LOW2;
+                                        wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH2 >= 10)
+                                    {
+                                        wartosc.HEX2 = wartosc.HIGH2 + wartosc.LOW2 + "";
+                                        wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addBL == 3) // +CH
+                            {
+                                if (wartosc.LOW2 <= 99)
+                                {
+                                    wartosc.LOW2 = wartosc.LOW2 + wartosc.HIGH3;
+                                    wartosc.HEX2 = "00" + wartosc.LOW2;
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addBL == 4) // + DH
+                            {
+                                if (wartosc.LOW2 <= 99)
+                                {
+                                    wartosc.LOW2 = wartosc.LOW2 + wartosc.HIGH4;
+                                    wartosc.HEX2 = "00" + wartosc.LOW2;
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addBL == 5)// + AL
+                            {
+                                if (wartosc.LOW2 <= 99)
+                                {
+                                    wartosc.LOW2 = wartosc.LOW2 + wartosc.LOW1;
+                                    wartosc.HEX2 = "00" + wartosc.LOW2;
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addBL == 6) // + CL
+                            {
+                                if (wartosc.LOW2 <= 99)
+                                {
+                                    wartosc.LOW2 = wartosc.LOW2 + wartosc.LOW3;
+                                    wartosc.HEX2 = "00" + wartosc.LOW2;
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addBL == 7) // + DL
+                            {
+                                if (wartosc.LOW2 <= 99)
+                                {
+                                    wartosc.LOW2 = wartosc.LOW2 + wartosc.LOW4;
+                                    wartosc.HEX2 = "00" + wartosc.LOW2;
+                                    wartosc.BX = int.Parse(wartosc.HEX2, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
                         }
                         else if (add == 7) // CL +
                         {
                             Console.WriteLine("Which register you want to add:");
+                            Console.WriteLine("1.AH");
+                            Console.WriteLine("2.BH");
+                            Console.WriteLine("3.CH");
+                            Console.WriteLine("4.DH");
+                            Console.WriteLine("5.AL");
+                            Console.WriteLine("6.BL");
+                            Console.WriteLine("7.DL");
+
+                            int addCL = int.Parse(Console.ReadLine());
+                            if (addCL == 1) // + AH
+                            {
+                                if (wartosc.LOW3 <= 99)
+                                {
+                                    wartosc.LOW3 = wartosc.LOW3 + wartosc.HIGH1;
+                                    wartosc.HEX3 = "00" + wartosc.LOW3;
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addCL == 2) // + BH
+                            {
+                                if (wartosc.LOW3 <= 99)
+                                {
+                                    wartosc.LOW3 = wartosc.LOW3 + wartosc.HIGH2;
+                                    wartosc.HEX3 = "00" + wartosc.LOW3;
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addCL == 3) // + CH
+                            {
+                                if (wartosc.LOW3 <= 99)
+                                {
+                                    wartosc.LOW3 = wartosc.LOW3 + wartosc.HIGH3;
+
+
+                                    if (wartosc.HIGH3 <= 9 && wartosc.LOW3 <= 9)
+                                    {
+                                        wartosc.HEX3 = "0" + wartosc.HIGH3 + "0" + wartosc.LOW3;
+                                        wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH3 <= 9 && wartosc.LOW3 >= 10)
+                                    {
+                                        wartosc.HEX3 = "0" + wartosc.HIGH3 + wartosc.LOW3;
+                                        wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH3 >= 10)
+                                    {
+                                        wartosc.HEX3 = wartosc.HIGH3 + wartosc.LOW3 + "";
+                                        wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addCL == 4) // + DH
+                            {
+                                if (wartosc.LOW3 <= 99)
+                                {
+                                    wartosc.LOW3 = wartosc.LOW3 + wartosc.HIGH4;
+                                    wartosc.HEX3 = "00" + wartosc.LOW3;
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addCL == 5) // + AL
+                            {
+                                if (wartosc.LOW3 <= 99)
+                                {
+                                    wartosc.LOW3 = wartosc.LOW3 + wartosc.LOW1;
+                                    wartosc.HEX3 = "00" + wartosc.LOW3;
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addCL == 6) // + BL
+                            {
+                                if (wartosc.LOW3 <= 99)
+                                {
+                                    wartosc.LOW3 = wartosc.LOW3 + wartosc.LOW2;
+                                    wartosc.HEX3 = "00" + wartosc.LOW3;
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addCL == 7) // + DL
+                            {
+                                if (wartosc.LOW3 <= 99)
+                                {
+                                    wartosc.LOW3 = wartosc.LOW3 + wartosc.LOW4;
+                                    wartosc.HEX3 = "00" + wartosc.LOW3;
+                                    wartosc.CX = int.Parse(wartosc.HEX3, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
                         }
                         else if (add == 8) // DL +
                         {
                             Console.WriteLine("Which register you wanna add:");
+
+                            Console.WriteLine("1.AH");
+                            Console.WriteLine("2.BH");
+                            Console.WriteLine("3.CH");
+                            Console.WriteLine("4.DH");
+                            Console.WriteLine("5.AL");
+                            Console.WriteLine("6.BL");
+                            Console.WriteLine("7.CL");
+                            int addDL = int.Parse(Console.ReadLine());
+                            if (addDL == 1) // + AH
+                            {
+                                if (wartosc.LOW4 <= 99)
+                                {
+                                    wartosc.LOW4 = wartosc.LOW4 + wartosc.HIGH1;
+                                    wartosc.HEX4 = "00" + wartosc.LOW4;
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addDL == 2) // + BH
+                            {
+                                if (wartosc.LOW4 <= 99)
+                                {
+                                    wartosc.LOW4 = wartosc.LOW4 + wartosc.HIGH2;
+                                    wartosc.HEX4 = "00" + wartosc.LOW4;
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addDL == 3) // + CH
+                            {
+                                if (wartosc.LOW4 <= 99)
+                                {
+                                    wartosc.LOW4 = wartosc.LOW4 + wartosc.HIGH3;
+                                    wartosc.HEX4 = "00" + wartosc.LOW4;
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addDL == 4) // + DH
+                            {
+                                if (wartosc.LOW4 <= 99)
+                                {
+                                    wartosc.LOW4 = wartosc.LOW4 + wartosc.HIGH4;
+
+
+                                    if (wartosc.HIGH4 <= 9 && wartosc.LOW4 <= 9)
+                                    {
+                                        wartosc.HEX4 = "0" + wartosc.HIGH4 + "0" + wartosc.LOW4;
+                                        wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH4 <= 9 && wartosc.LOW4 >= 10)
+                                    {
+                                        wartosc.HEX4 = "0" + wartosc.HIGH4 + wartosc.LOW4;
+                                        wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    else if (wartosc.HIGH4 >= 10)
+                                    {
+                                        wartosc.HEX4 = wartosc.HIGH4 + wartosc.LOW4 + "";
+                                        wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+                                    }
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addDL == 5) // + AL
+                            {
+                                if (wartosc.LOW4 <= 99)
+                                {
+                                    wartosc.LOW4 = wartosc.LOW4 + wartosc.LOW1;
+                                    wartosc.HEX4 = "00" + wartosc.LOW4;
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addDL == 6) // + BL
+                            {
+                                if (wartosc.LOW4 <= 99)
+                                {
+                                    wartosc.LOW4 = wartosc.LOW4 + wartosc.LOW2;
+                                    wartosc.HEX4 = "00" + wartosc.LOW4;
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
+                            else if (addDL == 7) // + CL
+                            {
+                                if (wartosc.LOW4 <= 99)
+                                {
+                                    wartosc.LOW4 = wartosc.LOW4 + wartosc.LOW3;
+                                    wartosc.HEX4 = "00" + wartosc.LOW4;
+                                    wartosc.DX = int.Parse(wartosc.HEX4, System.Globalization.NumberStyles.HexNumber);
+
+                                    Console.WriteLine("Done! Click any button to return to menu.");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto Wroc;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("it can't be added, the register is full");
+                                    Thread.Sleep(3000);
+                                    Console.Clear();
+                                    goto Wroc;
+
+                                }
+                            }
                         }
 
 
